@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBM</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url("static/image/image1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #fff;
+        }
+
+        .navbar-brand {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .navbar-inverse {
+            background-color: #000;
+            border-color: #000;
+        }
+
+        .btn-primary {
+            background-color: #000;
+            border-color: yellow;
+            font-size: 20px;
+            padding: 10px 20px;
+        }
+
+        #con {
+            font-size: 50px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        #con span {
+            color: yellow;
+        }
+
+        #con1 {
+            font-size: 20px;
+            color: #fff;
+            margin-top: -10px;
+        }
+
+        #con1 span {
+            font-weight: bold;
+        }
+
+        .cen {
+            margin-top: 200px;
+        }
+
+        .content-section {
+            padding: 50px 0;
+        }
+
+        .content-section h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+
+        .content-section p {
+            font-size: 18px;
+        }
+
+        .signin-section {
+            padding: 50px 0;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .signin-section h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+
+        .signin-section form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .signin-section form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .future-scope-section {
+            padding: 50px 0;
+        }
+
+        .future-scope-section h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+
+        .future-scope-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .future-scope-section ul li {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <h1 class="navbar-brand">ONCOLOGY<span>.</span></h1>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ url_for('predict') }}"><button class="btn btn-primary">Predict</button></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#signin">Sign In</a></li>
+                <li><a href="#future-scope">Future Scope</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="row">
+        <center>
+            <div class="cen">
+                <p id="con">Cancer Mortality <br><span id="con">Incidence<span>.</span></span></p>
+                <p id="con1">Cancer cannot cripple love. It cannot shatter<br><span>hope. It cannot conquer the spirit.</span></p>
+            </div>
+        </center>
+    </div>
+
+    <section id="about" class="content-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>About</h2>
+                    <p>The cancer mortality rate classification project aims to analyze and classify the mortality rates associated with different types of cancer. The project focuses on understanding the patterns and trends in cancer-related deaths and categorizing them based on various factors such as demographics, geographic location, cancer type, and time period.
+
+
+The project typically involves the following steps:
+
+<p>Data Collection</p>
+<p>Data preprocession</p>
+<p>Feature selection and engineering</p>
+<p>Model selection and training</p>
+<p>Model evalution</p>
+<p>Interpretation and insights</p>
+<p>Visualization and reporting</p>
+</p>
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="signin" class="signin-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Sign In</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Enter username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Sign In</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="future-scope" class="future-scope-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>Future Scope</h2>
+                    <ul>
+                        <li><p>Telemedicine integration for virtual consultations</p></li>
+                        <li><p>User-friendly mobile app development</p>
+</li>
+                        <li><p>Collaborative research partnerships for data-driven insights</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBM</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url("static/image/image1.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #content {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin-top: 50px;
+            border-radius: 10px;
+        }
+        #content h3 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .inp {
+            display: flex;
+            justify-content: space-between;
+        }
+        .col1, .col2 {
+            flex: 1;
+        }
+        .btn1 {
+            margin-top: 20px;
+        }
+        #prediction {
+            background-color: yellow;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <h1 class="navbar-brand" style="color: white;">ONCOLOGY<span style="color: yellow;">.</span></h1>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ url_for('predict') }}"><button style="background-color: black; border-color: yellow;" class="btn btn-primary">Predict</button></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="#" style="color: ;">About</a></li>
+                <li><a href="#" style="color: ;">Contact</a></li>
+            </ul>
+        </div>
+    </nav><div id="content">
+    <h3><b>Cancer Mortality & Incidence Rates</b></h3>
+    <form action="{{ url_for('predict') }}" method="POST">
+        <div class="inp">
+            <div class="col1">
+                <center>
+                    <label for="index">Index</label><br>
+                    <input type="text" name="index" id="index"><br>
+                    <label for="fips">FIPS</label><br>
+                    <input type="text" name="fips" id="fips"><br>
+                    <label for="met_objective">Met Objective of 45.5? (1)</label><br>
+                    <input type="text" name="met_objective" id="met_objective"><br>
+                    <label for="death_rate">Age-Adjusted Death Rate</label><br>
+                    <input type="text" name="death_rate" id="death_rate"><br>
+                    <label for="lower_ci">Lower 95% Confidence Interval for Death Rate</label><br>
+                    <input type="text" name="lower_ci" id="lower_ci"><br>
+                    <label for="upper_ci">Upper 95% Confidence Interval for Death Rate</label><br>
+                    <input type="text" name="upper_ci" id="upper_ci"><br>
+                    <label for="avg_deaths">Average Deaths per Year</label><br>
+                    <input type="text" name="avg_deaths" id="avg_deaths"><br>
+                </center>
+            </div>
+
+            <div class="col2">
+                <center>
+                    <label for="recent_trend">Recent Trend (2)</label><br>
+                    <input type="text" name="recent_trend" id="recent_trend"><br>
+                    <label for="recent_5year_trend">Recent 5-Year Trend (2) in Death Rates</label><br>
+                    <input type="text" name="recent_5year_trend" id="recent_5year_trend"><br>
+                    <label for="trend_lower_ci">Lower 95% Confidence Interval for Trend</label><br>
+                    <input type="text" name="trend_lower_ci" id="trend_lower_ci"><br>
+                    <label for="trend_upper_ci">Upper 95% Confidence Interval for Trend</label><br>
+                    <input type="text" name="trend_upper_ci" id="trend_upper_ci">
+                </center>
+            </div>
+        </div>
+        <center>
+            <button type="submit" class="btn btn-success btn1">Submit</button>
+        </center>
+    </form>
+    
+
+    {% if prediction %}
+    <h1>The Cancer Mortality Incidence Status:</h1>
+    <p id="prediction">{{ prediction }}</p>
+    <p>Status: {{ status }}</p>
+    {% endif %}
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
