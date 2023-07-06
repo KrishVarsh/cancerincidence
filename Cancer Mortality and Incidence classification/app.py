@@ -32,7 +32,7 @@ def predict():
         recent_5year_trend = float(request.form['recent_5year_trend'])
         trend_lower_ci = float(request.form['trend_lower_ci'])
         trend_upper_ci = float(request.form['trend_upper_ci'])
-
+        
         # Perform prediction based on the form data
         prediction = model.predict([[index, fips, met_objective, death_rate, lower_ci, upper_ci, avg_deaths, recent_trend, recent_5year_trend, trend_lower_ci, trend_upper_ci]])
 
